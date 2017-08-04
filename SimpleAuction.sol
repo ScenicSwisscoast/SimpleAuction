@@ -1,19 +1,21 @@
 pragma solidity ^0.4.11;
 
 contract SimpleAuction {
-    // Parameters of the auction. Times are either
+    // 
+    // This is an auction where UNICEF is the beneficiary 
+    //
+    // The highest bidder of this auction is entiteled to Poster Number one of the worlds first Ehtereum funded movie The-Pitt-Circus Movie. 
+    // The Poster is a limited editions serigraphy.
+    // To claim the poster the highest bidder can get in touch with the-pitts-circus.com or send an data-field to the beneficiary = 0xb23397f97715118532c8c1207F5678Ed4FbaEA6c after the auction has ended
+    // 
+    // 
+    //
+    //Parameters of the auction. Times are either
     // absolute unix timestamps (seconds since 1970-01-01)
     // or time periods in seconds.
-  	/////////////// check withdraw after auction finished?
-    /////////////// check withdraw after auction finished ended?
-    /////////////// check can you end auction if you are not owner (before / after end of auction)
-	  /////////////// check does eth get transferred if ownner ends auction
-	  /////// checked: withdraw before end of auction
-    /////// checked: winning bid gets transferred if auction is ended by benificiary
-
-    
-	
-	uint public auctionStart;
+    // 
+  	
+    uint public auctionStart;
     uint public biddingTime;
 
     // Current state of the auction.
@@ -38,10 +40,14 @@ contract SimpleAuction {
     /// Create a simple auction with `_biddingTime`
     /// seconds bidding time on behalf of the
     /// beneficiary address `_beneficiary`.
+    
+    
     function SimpleAuction() {
-        beneficiary = 0xc2752751E6B91736d5a2e8E31336DC7C7220e8FC;
+        _beneficiary = 0xb23397f97715118532c8c1207F5678Ed4FbaEA6c;
+	// UNICEF Multisig Wallet according to:
+	// unicefstories.org/2017/08/04/unicef-ventures-exploring-smart-contracts/
         auctionStart = now;
-        biddingTime = 600;
+        biddingTime = 2587587;
     }
 
     /// Bid on the auction with the value sent
