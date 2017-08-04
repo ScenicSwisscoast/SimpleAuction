@@ -5,8 +5,8 @@ contract SimpleAuction {
     // This is an auction where UNICEF is the beneficiary 
     //
     // The highest bidder of this auction is entiteled to Poster Number one of the worlds first Ehtereum funded movie The-Pitt-Circus Movie. 
-    // The Poster is a limited editions serigraphy.
-    // To claim the poster the highest bidder can get in touch with the-pitts-circus.com or send an data-field to the beneficiary = 0xb23397f97715118532c8c1207F5678Ed4FbaEA6c after the auction has ended
+    // The Poster is a limited editions serigraphy (numbered and signed by the artist).
+    // To claim the poster the highest bidder can get in touch with the-pitts-circus.com or send the address an data-field transation to the contract of the beneficiary = 0xb23397f97715118532c8c1207F5678Ed4FbaEA6c after the auction has ended
     // 
     // 
     //
@@ -41,11 +41,13 @@ contract SimpleAuction {
     /// seconds bidding time on behalf of the
     /// beneficiary address `_beneficiary`.
     
-    
-    function SimpleAuction() {
-        _beneficiary = 0xb23397f97715118532c8c1207F5678Ed4FbaEA6c;
+    address _beneficiary = 0xb23397f97715118532c8c1207F5678Ed4FbaEA6c;
 	// UNICEF Multisig Wallet according to:
 	// unicefstories.org/2017/08/04/unicef-ventures-exploring-smart-contracts/
+	address beneficiary;
+    
+    function SimpleAuction() {
+        beneficiary = _beneficiary;
         auctionStart = now;
         biddingTime = 2587587;
     }
